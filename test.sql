@@ -1,4 +1,4 @@
-路径
+﻿路径
 cd /data/cif/omp-cif/log/cifBat/busi/20190201/lskhif
 
 -- 查询同步联社的记录数
@@ -12,3 +12,5 @@ select count(*) from cif_union_record where status <> '1';
 
 -- 查询同步联社失败的原因sql
 select distinct(erorcd) from cif_union_record;
+
+++++++++++
