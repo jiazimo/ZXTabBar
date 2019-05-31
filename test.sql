@@ -9,3 +9,7 @@ select count(*) from cif_cust_base where lskhid is null or lskhid = '';
 
 -- 查询同步联社失败的sql
 select count(*) from cif_union_record where status <> '1';
+
+
+
+发的事件发生了房间撒旦看来
