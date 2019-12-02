@@ -1,0 +1,47 @@
+1.replace replaceAll replaceFirst的区别
+public class Test {
+
+	public static void main(String[] args) {
+		String s = "my.test.txt";
+		System.out.println(s.replace(".", "#"));      // replace将字符串中的. 都替换为 #
+		System.out.println(s.replaceAll(".", "#"));   // replaceAll 用到了正则表达式，其中. 是任意字符的意思，所以结果是字符串全部替换为#
+		System.out.println(s.replaceFirst(".", "#")); // replaceFirst 用到了正则表达式， 其中. 是任意字符的意思，所以第一个字符被#号代替
+		System.out.println(s.replaceFirst("\\.", "#"));  // 正则表达式中双杠是原生字符串的意思，所以结果是字符串中第一个. 被#代替得到   
+	}
+}
+
+2.String.valueOf 和 Integer.toString 的区别、
+String.valueOf()可以应用到任何数据类型，且不会有异常报出。
+Integer.toString()表示先讲int转换成Integer型，然后再将Integer转换成String型。
+
+3.String的不可变性
+不可变性：当你给一个字符串重新赋值之后，老值并没有在内存中销毁，而是重新开辟一块空间存储新值。
+
+4.SPI和API
+在java中，我们使用java提供的很多类、类的方法、数据结构来编写我们的应用程序，最终完成我们需求的程序功能，这里的类、方法、数据结构即是jdk提供的api。api的意义，其实就是这些提供给你完成某项功能的类、接口或者方法。
+而SPI（Service Provider Interface）是指一些提供给你继承、扩展，完成自定义功能的类、接口或者方法。
+
+5.JDK 6 和 JDK 7 中 substring 的原理及区别
+JDK 6中的substring
+String是通过字符数组实现的。在jdk 6 中，String类包含三个成员变量：char value[]， int offset，int count。他们分别用来存储真正的字符数组，数组的第一个位置索引以及字符串中包含的字符个数。
+当调用substring方法的时候，会创建一个新的string对象，但是这个string的值仍然指向堆中的同一个字符数组。这两个对象中只有count和offset 的值是不同的。
+在jdk 7 中，substring方法会在堆内存中创建一个新的数组。
+
+6.Java中String对+的重载
+String对+的支持其实就是使用了StringBuilder以及他的append、toString两个方法。
+
+7.Integer的缓存机制   自动装(拆)箱
+该类的作用是将数值等于-128-127(默认)区间的Integer实例缓存到cache数组中。
+通过valueOf()方法很明显发现，当再次创建值在-128-127区间的Integer实例时，会复用缓存中的实例，也就是直接指向缓存中的Integer实例。
+自动装箱: 就是将基本数据类型自动转换成对应的包装类。
+自动拆箱：就是将包装类自动转换成对应的基本数据类型。
+
+8.Vector,ArrayList,LinkedList有何区别？
+	Vector是Java中线程安全的集合类，如果不是非要线程安全，不必选择使用，毕竟同步需要额外的性能
+开销，底部实现也是数组来操作，再添加数据时，会自动根据需要创建新数组增加长度来保存数据，并拷贝原有数组数据
+　　ArrayList是应用广泛的动态数组实现的集合类，不过线程不安全，所以性能要好的多，也可以根据需要增加数组容量，不过与
+Vector的调整逻辑不同，ArrayList增加50%，而Vector会扩容1倍。
+　　LinkedList是基于双向链表实现，不需要增加长度，也不是线程安全的
+　　Vector与ArrayList在使用的时候，应保证对数据的删除、插入操作的减少，因为每次对改集合类进行这些操作时，都会使原有数据
+进行移动除了对尾部数据的操作，所以非常适合随机访问的场合。
+　　LinkedList进行节点的插入、删除却要高效的多，但是随机访问对于该集合类要慢的多
