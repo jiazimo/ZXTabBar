@@ -1,0 +1,17 @@
+windows+r调出控制台
+
+输入services.msc命令调出系统后台管理
+
+找到oracle
+
+https://blog.csdn.net/wufaliang003/article/details/82347077
+https://blog.csdn.net/fhkkkbfgggjk/article/details/85047461
+https://blog.csdn.net/qq_39089301/article/details/80615348
+https://blog.csdn.net/jijianshuai/article/details/80883131
+https://blog.csdn.net/fhkkkbfgggjk/article/details/84862149
+
+
+服务商签约主体名称落的是客户名称
+1.签约主体名称和商户的名称不能相同。
+2.MPOS进件的时候要判断用户的证件号码是否在法人信息表中存在,并且是否关联了服务商.
+3.现在前端查询审核日期用户中心使用的是商户信息表中的修改时间字段，这样不便于以后扩展，故此增加审核时间字段。
